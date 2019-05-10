@@ -1,20 +1,3 @@
-// load('api_config.js');
-// load('api_gpio.js');
-// load('api_mqtt.js');
-// load('api_net.js');
-// load('api_sys.js');
-// load('api_timer.js');
-// load('api_dht.js');
-
-
-// let pin = 5, topic = 'my/topic';
-// GPIO.set_button_handler(pin, GPIO.PULL_UP, GPIO.INT_EDGE_NEG, 1000, function() {
-//   // let res = MQTT.pub('my/topic', JSON.stringify({ a: 1, b: 2 }), 1);
-//   // print('Published:', res ? 'yes' : 'no');
-//   print("Se presionó el botón");
-// }, null);
-
-
 load('api_gpio.js');
 load('api_mqtt.js');
 load('api_sys.js');
