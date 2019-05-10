@@ -1,3 +1,5 @@
+// sample code: https://github.com/mongoose-os-apps/aws-iot-button/blob/master/fs/init.js
+
 load('api_gpio.js');
 load('api_mqtt.js');
 load('api_sys.js');
