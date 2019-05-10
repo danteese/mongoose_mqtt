@@ -1,22 +1,52 @@
 author: mongoose-os
-description: A JS-enabled demo Mongoose OS firmware
-# arch: PLATFORM
+description: Setup WiFi via Web UI
 version: 1.0
-manifest_version: 2017-05-18
+
 libs_version: ${mos.version}
 modules_version: ${mos.version}
 mongoose_os_version: ${mos.version}
 
-config_schema:
-  - ["mqtt.server", "iot.eclipse.org:1883"]
-  - ["i2c.enable", true]
+platforms: [ cc3200, esp32, esp8266 ]
+# List of files / directories with C sources. No slashes at the end of dir names.
+sources:
+  - src
 
-tags:
-  - js
+includes:
+  - include
 
+# List of dirs. Files from these dirs will be copied to the device filesystem
 filesystem:
   - fs
 
 libs:
+  - origin: https://github.com/mongoose-os-libs/mqtt
   - origin: https://github.com/mongoose-os-libs/boards
-  - origin: https://github.com/mongoose-os-libs/js-demo-bundle
+  - origin: https://github.com/mongoose-os-libs/ca-bundle
+  - origin: https://github.com/mongoose-os-libs/http-server
+  - origin: https://github.com/mongoose-os-libs/rpc-service-config
+  - origin: https://github.com/mongoose-os-libs/rpc-service-fs
+  - origin: https://github.com/mongoose-os-libs/rpc-uart
+  - origin: https://github.com/mongoose-os-libs/wifi
+  - origin: https://github.com/mongoose-os-libs/dash
+  - origin: https://github.com/mongoose-os-libs/sntp
+  - origin: https://github.com/mongoose-os-libs/dht
+  - origin: https://github.com/mongoose-os-libs/mjs
+
+tags:
+  - js
+  - mqtt
+  - hw
+  - wifi
+
+config_schema:
+  - ["i2c.enable", true]
+  - ["wifi.ap.enable", false]
+  - ["wifi.sta.enable", true]
+  - ["wifi.sta.ssid", "BBCITA"]
+  - ["wifi.sta.pass", "6six9nine"]
+  - ["mqtt.server", "192.168.100.97"]
+  - ["mqtt.user", "bbcita"]
+  - ["mqtt.enable", true]
+
+
+manifest_version: 2017-05-18
